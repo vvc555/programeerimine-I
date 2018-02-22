@@ -10,6 +10,10 @@
 	<input type="text" id="tekst">
 	<button id="nupp">Vajuta siia</button>
 	
+	<div id=kast>
+
+	</div>
+
 	<script type="text/javascript">
 		console.log("tere");	
 		//alert("tere");
@@ -48,9 +52,21 @@
 	}
 
 
-	
+	// html dokumendi muutmine
 
 	document.getElementById("pealkiri").innerHTML = document.title;
+
+	// HTML elemendi loomine
+
+	var  link = document.createElement("a");
+	link.innerHTML = "See tekt on link";
+	link.href="#";
+	
+	//global 
+	document.body.appendChild(link);
+
+	//divi id=kast sisee panek
+	kast.appendChild(link.cloneNode(true));
 
 
 	</script>
