@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>teine/canvas</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="600"></canvas>
+
+
+    <script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+        // Ristkülik
+        ctx.fillRect(10,10,200,100);
+        {
+        ctx.beginPath();
+        ctx.fillStyle = "#ff0000";
+        ctx.lineWidth = "5";
+        ctx.rect(250,150,200,100);
+        ctx.fill();
+        ctx.stroke();
+        }
+    //jooned
+        {
+        ctx.beginPath();
+        ctx.lineWidth = "1";
+        ctx.fillStyle = "rgb(0, 255, 0)";
+        ctx.moveTo(250, 10);
+        ctx.lineTo(250, 110);
+        ctx.lineTo(350, 110);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+        }
+
+    // Kaar
+    ctx.beginPath();
+    ctx.fillStyle = "rgba(0, 0, 255, 0.5)";
+    ctx.arc(100, 100, 70, 1, 1*Math.PI );
+    ctx.fill();
+
+
+    ctx.beginPath();
+    ctx.fillStyle = "rgba(0, 0, 255, 0.5)";
+    ctx.arc(200, 200, 70, 1, 0.5*Math.PI, true );
+    //ctx.lineTo (canvas.width, canvas.height);
+    ctx.stroke();
+
+    // Text
+    ctx.fillStyle = "#000000";
+    ctx.font = "30px arial";
+    var text = "Text canvases muutujana";
+    var txtWidth = parseInt(ctx.measureText(text).width);
+
+    ctx.fillText(text + " - "  + txtWidth, 10, 290);
+    
+
+    // Pilt
+    var imageObj = new Image();
+    imageObj.onload = function() {
+        ctx.drawImage(imageObj, 200, 150);
+    };
+    imageObj.src = 'darth.png';
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

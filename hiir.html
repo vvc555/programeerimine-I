@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hiirega joonistamine</title>
+    <style>
+            #canvas {
+                border: 1px solid #000;
+            }
+        </style>
+</head>
+<body>
+        <canvas id="canvas" width="1000" height="600"></canvas>
+        <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        
+        var hx, hy, hiirAll;
+        var canvasPos = canvas.getBoundingClientRect();
+
+        window.addEventListener("mouseup", function() {
+            hiirAll = false;
+        });
+
+        window.addEventListener("mousedown", function() {
+            hiirAll = true;
+        });
+
+
+        window.addEventListener("mousemove", function(e) {
+            
+            if (hiirAll) {
+                hx = e.clientX - canvasPos.x;
+                hy = e.clientY - canvasPos.y;
+                console.log(hx, hy);
+                //ctx.fillRect(hx, hy,1 ,1 );
+                ctx.lineTo(hx, hy);
+                ctx.stroke();
+            }
+        } );
+
+        </script>
+
+</body>
+</html>
